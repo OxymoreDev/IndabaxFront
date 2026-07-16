@@ -132,7 +132,7 @@ export default function Home() {
         <header className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <div>
             <h1 className="text-4xl font-black text-slate-900 tracking-tight italic">
-               Match <span className="text-blue-600">Engine</span>
+              Match <span className="text-blue-600">Engine</span>
             </h1>
             <p className="text-slate-500 font-medium">
               Intelligence Artificielle & NLP - Prototype Officiel ACPE Congo
@@ -240,11 +240,9 @@ export default function Home() {
 
             <div className="flex justify-between items-end mb-4 px-2">
               <h2 className="text-2xl font-black tracking-tight">
-                <h2 className="text-2xl font-black tracking-tight">
-                  {searchQuery
-                    ? `Talents correspondant à "${searchQuery}"`
-                    : "Recommandations IA (Candidats vs Offres)"}
-                </h2>
+                {searchQuery
+                  ? `Talents correspondant à "${searchQuery}"`
+                  : "Recommandations IA (Candidats vs Offres)"}
               </h2>
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
                 Page {currentPage} / {totalPages}
@@ -273,11 +271,20 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <div className="bg-slate-50 p-5 rounded-[2rem] text-center border border-slate-100 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-inner">
-                      <div className="text-3xl font-black italic">
+                    {/* REMPLACE LE BLOC DU SCORE PAR CELUI-CI */}
+                    <div className="bg-slate-50 p-5 rounded-[2rem] text-center border border-slate-100 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-inner flex flex-col justify-center min-w-[120px]">
+                      {/* Affichage du Rang en petit au-dessus */}
+                      <div className="text-[10px] font-black opacity-40 uppercase tracking-[0.2em] mb-1">
+                        Rang #{match.rank}
+                      </div>
+
+                      {/* Le Score */}
+                      <div className="text-3xl font-black italic line-height-1">
                         {(match.score * 100).toFixed(0)}%
                       </div>
-                      <div className="text-[9px] font-black opacity-50 uppercase tracking-tighter">
+
+                      {/* Le Libellé */}
+                      <div className="text-[8px] font-black opacity-50 uppercase tracking-tighter mt-1">
                         Indice pertinence
                       </div>
                     </div>
