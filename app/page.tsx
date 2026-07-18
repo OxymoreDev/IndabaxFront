@@ -505,5 +505,5 @@ function StatCard({ icon, label, value, sub }: StatCardProps) {
         <p className="text-[10px] text-slate-400 font-bold mt-1">{sub}</p>
       </div>
     </div>
-  );
-}
+  ); 
+}//
